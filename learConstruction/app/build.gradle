@@ -32,9 +32,9 @@ android {
 }
 
 dependencies {
-
+    implementation 'com.airbnb.android:lottie:2.7.0' //添加lottie动画 但是需要前端生成这个json
     implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.+'

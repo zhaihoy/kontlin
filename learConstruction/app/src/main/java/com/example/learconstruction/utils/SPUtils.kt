@@ -1,8 +1,9 @@
-package com.example.learconstruction
+package com.example.learconstruction.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.learconstruction.LearConstructionApplication
 import java.io.*
 import kotlin.reflect.KProperty
 
