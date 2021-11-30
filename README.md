@@ -1,2 +1,4 @@
 # kontlin
-坚持学下去
+修复JumpUi crash
+使用kotlin customUI
+
