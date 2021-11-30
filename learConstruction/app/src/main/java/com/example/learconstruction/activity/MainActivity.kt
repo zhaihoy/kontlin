@@ -1,7 +1,8 @@
-package com.example.learconstruction
+package com.example.learconstruction.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.learconstruction.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

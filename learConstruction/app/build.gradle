@@ -4,14 +4,14 @@ plugins {
 }
 apply plugin: 'kotlin-android-extensions'
 android {
-    compileSdk 31
+    compileSdk rootProject.ext.android.compileSdk
 
     defaultConfig {
-        applicationId "com.example.learconstruction"
-        minSdk 26
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        applicationId "com.sina.learconstruction"
+        minSdk rootProject.ext.android.minSdk
+        targetSdk rootProject.ext.android.minSdk
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,12 +32,11 @@ android {
 }
 
 dependencies {
-    implementation 'com.airbnb.android:lottie:2.7.0' //添加lottie动画 但是需要前端生成这个json
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation rootProject.ext.androisxLibs
+    testImplementation rootProject.ext.testDes.junit
+    androidTestImplementation rootProject.ext.testDes.androidTestImplementation
+    androidTestImplementation rootProject.ext.testDes.androidTestImplementations
+    implementation rootProject.ext.networkLibs
+    // RxJava2
+    implementation rootProject.ext.rxJavaLibs
 }

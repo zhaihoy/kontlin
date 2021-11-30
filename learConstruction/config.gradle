@@ -1,0 +1,54 @@
+ext {
+    android = [compileSdk : 31,
+               minSdk     : 26,
+               targetSdk  : 31,
+               versionCode: 1,
+               versionName: "1.0"]
+
+    dependVersion = [
+            retrofit : "2.4.0",
+            glide    : "4.12.0",
+            rxJava   : "2.2.2",
+            rxAndroid: "2.1.0",
+            rxKotlin : "2.3.0",
+            anko     : "0.10.7"
+    ]
+    androidxDeps = [
+            "appcompat"       : 'androidx.appcompat:appcompat:1.3.1',
+            "material"        : 'com.google.android.material:material:1.3.0',
+            "constraintlayout": 'androidx.constraintlayout:constraintlayout:2.0.4',
+            "androidx-core"   : 'androidx.core:core-ktx:1.3.2',
+            "recyclerview"    : "androidx.recyclerview:recyclerview:1.2.1",
+            "lottie"          : 'com.airbnb.android:lottie:2.7.0' //添加lottie动画 但是需要前端生成这个json
+
+    ]
+
+
+    retrofit = [
+            "retrofit"                : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
+            "retrofitConverterGson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
+            "retrofitAdapterRxjava2"  : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
+            "okhttp3LoggerInterceptor": 'com.squareup.okhttp3:logging-interceptor:3.11.0',
+            "retrofitConverterMoshi"  : 'com.squareup.retrofit2:converter-moshi:2.4.0',
+            "retrofitKotlinMoshi"     : "com.squareup.moshi:moshi-kotlin:1.7.0"
+    ]
+    rxJava = [
+            "rxJava"   : "io.reactivex.rxjava2:rxjava:${dependVersion.rxJava}",
+            "rxAndroid": "io.reactivex.rxjava2:rxandroid:${dependVersion.rxAndroid}",
+            "rxKotlin" : "io.reactivex.rxjava2:rxkotlin:${dependVersion.rxKotlin}",
+            "anko"     : "org.jetbrains.anko:anko:${dependVersion.anko}"
+    ]
+
+    testDes = [
+            "junit"                     : "junit:junit:4.+",
+            "androidTestImplementation" : "androidx.test.ext:junit:1.1.2",
+            "androidTestImplementations": "androidx.test.espresso:espresso-core:3.3.0"
+
+    ]
+    //统一处理基础库
+    androisxLibs = androidxDeps.values()
+    //处理rxjava和retrofit
+    networkLibs = retrofit.values()
+    rxJavaLibs = rxJava.values()
+
+}

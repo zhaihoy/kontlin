@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearConstruction">
         <activity
-            android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:name=".activity.MainActivity"
+            android:exported="false" />
         <activity
-            android:name=".SplashActivity"
-            android:theme="@style/AppTheme.BaseStart"
-            android:exported="true">
+            android:name=".activity.LoginActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.BaseStart" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.BaseStart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

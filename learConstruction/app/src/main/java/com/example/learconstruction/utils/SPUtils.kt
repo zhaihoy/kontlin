@@ -21,10 +21,10 @@ class SPUtils<T>(val name: String, private val default: T) {
         // 并且其内部定义了一个volatile修饰的_value属性，这样做的目的是当一个线程修改属性值的时候，
         // 其他线程可以得到最新的值。
         private val prefs: SharedPreferences by lazy {
-            LearConstructionApplication.context.instance.getSharedPreferences(
+            LearConstructionApplication.instance!!.getSharedPreferences(
                 file_name,
                 Context.MODE_PRIVATE
-            );
+            )
         }
 
         /**

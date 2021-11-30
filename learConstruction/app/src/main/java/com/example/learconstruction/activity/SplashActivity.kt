@@ -1,19 +1,21 @@
-package com.example.learconstruction
+package com.example.learconstruction.activity
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import com.example.learconstruction.R
+import com.example.learconstruction.activity.constants.Constant
+import com.example.learconstruction.utils.SPUtils
 import kotlinx.android.synthetic.main.splash_activity.*
 import java.util.*
-import kotlin.random.Random
-import android.view.animation.Animation.AnimationListener as AnimationListener1
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
     //    companion object {
 //        init {
     //Kotlin中取消了静态代码块  kotlin伴生对象在类中只能存在一个
@@ -30,15 +32,16 @@ class SplashActivity : AppCompatActivity() {
 //        }
 //    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
-        setContentView(R.layout.splash_activity)
+    override fun processConstruction() {
         setImageAnimation()
     }
 
+    override fun getLayout(): Int {
+        return R.layout.splash_activity
+    }
+
     private fun setImageAnimation() {
-        val alphaAnimation = AlphaAnimation(0.5f, 1f)
+        val alphaAnimation = AlphaAnimation(0f, 1f)
         alphaAnimation.duration = 6000
         val randoms = (0..7).random()
         im_splash.animation = alphaAnimation
@@ -50,14 +53,23 @@ class SplashActivity : AppCompatActivity() {
 
             override fun onAnimationEnd(animation: Animation?) {
                 print("hello end animation")
-                val intent = Intent()
-                intent.setClass(this@SplashActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                val isLogin: Boolean by SPUtils(Constant.LOGIN_KEY, false)
+                if (isLogin) {
+                    processJump(MainActivity::class.java)
+                } else {
+                    processJump(LoginActivity::class.java)
+                }
             }
 
             override fun onAnimationRepeat(animation: Animation?) {
             }
         })
+    }
+
+    private fun processJump(cla: Class<*>) {
+        val intent = Intent()
+        intent.setClass(this@SplashActivity, cla)
+        startActivity(intent)
+        finish()
     }
 }
